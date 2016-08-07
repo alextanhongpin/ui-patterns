@@ -2,7 +2,17 @@
 
 ## A collection of common UI patterns found in development/designing.
 
+Samples of UI Patterns, separated into their respective domain:
 
+
+![ui-patterns__group-patterns](images/ui-patterns__group-patterns.png)
+![ui-patterns__informational-patterns](images/ui-patterns__informational-patterns.png)
+![ui-patterns__input-patterns](images/ui-patterns__input-patterns.png)
+![ui-patterns__navigational-patterns](images/ui-patterns__navigational-patterns.png)
+
+
+
+## Common Mistakes in the Design Process
 ### Text Patterns
 
 **1. Character limits**
