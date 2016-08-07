@@ -9,5 +9,5 @@
 
 When designing a component with text, always define the character limit.
 
-[[images/text_pattern_character_limit_1.png]]
+[images/text_pattern_character_limit_1.png]
 
