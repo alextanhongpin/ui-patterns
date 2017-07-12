@@ -76,6 +76,8 @@ When doing multilingual, this becomes slightly more troublesome as different lan
 4. Empty names can break your UI too. Imagine when someone visited your profile and did not find a name.
 5. __Long comments__. When having a display that is full of words, consider hiding part of it (3 lines or 200 characters) showing a `Show More`/`Show Less` toggle. Users don't need to see the full text.
 6. __Untrimmed text__. Always trim your text before saving them to the DB. Also, trim your text before checking the length, as an empty space will have a text length of 1. Image typing lots of space before typing the actual comment - You will end up with a lot of blank space.
+7. empty submit. dont allow user sto submit empty stuff. disable the button accordingly.
+8. cant press enter for forms since it is disabled.
 
 ## Numbers issue
 
@@ -100,11 +102,18 @@ When doing multilingual, this becomes slightly more troublesome as different lan
 2. User `B` logs out of the page. Then the user press the back button - user `B` is still logged in.
 3. User `A` logs in. User `B` can still access the login page. User `B` can log in.
 4. User `A` is logged in. User `A` has the same page opened on multiple tabs. User `A` logs out. But user `A` is still logged in other pages.
+5. code to kick users out from all tabs.
 
 ## Block issue
 
 1. You implemented a logic to block people from viewing your profile, can the user still view your profile if the user is not logged in? Solution: Implement private security - disable anonymous user from viewing your profile.
 
+## Throttle/Debounce
+
+Scenario: You want to prevent submitting multiple request/rate-limit your actions when performing an action.
+Application: Search input (when sending requests), resizing window (will only perform action after user stops resizing)
+
+TODO: Show two ceodes example.
 
 ## CRUD issues
 
@@ -112,10 +121,12 @@ When doing multilingual, this becomes slightly more troublesome as different lan
 2. __Cached issue__. User `A` update his profile photo. The photo however is not reflected on other pages since it is cached.
 3. __Slow reflection__. User `A` update a field. But user `B` did not saw the changes.
 4. __Slow delete__. User `A` create an item and shared the link to user `B`. User `A` then delete the item. User `B` saw 404 page. User `B` is expected to be shown a `Item has been deleted or does not exist` page.
-5. __Simultaneous creation__. User `A` create a new comment. But the view on User `B` is still not updated. User `B` enters a new comment too. When the page refreshes, the order of the items are not in the expected order.
+5. __Simultaneous creation__. User `A` create a new comment. But the view on User `B` is still not updated. User `B` enters a new comment too. When the page refreshes, the order of the items are not in the expected order. also possible to have duplicate orders, for example a booking system. 
 6. __Double click__. The most common patterns for newbies. User can submit the form twice by double-clicking with their gaming mouse. 
+7. Websocket for refreshing views. if you have a feed page, any changes you made on your side will not be reflected n the other users side.
+8. expired items. a very common issue. you have an item that will expire in 5 minutes. you are on that page before it expires. 10 minutes later, you perform an action.
 
 ## Single page application
 
-1. __Router Issue__. Single page application usually have a router. Always disable the click if the user is already on the specified tab, as it will mess up the browser history.
+1. __Router Issue__. Single page application usually have a router. Always disable the click if the user is already on the specified tab, as it will mess up the browser history. todo: example code. discussion, sometimes you want user to refresh the tab on click, so it might be sensible to NOT disable the click.
 2. __Logout issues__. Perform a page refresh when doing a logout. Just swapping views will not help, as user can press the browser back button.
